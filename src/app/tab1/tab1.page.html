@@ -1,17 +1,48 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Main
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-grid>
+    <form [formGroup]="myForm">
+      <ion-row color="white" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div text-center>
+          </div>
+          <div padding>
+            <ion-item>
+              <ion-input formControlName="name" placeholder="Nombre" type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="curp" placeholder="Curp" type="text"
+              ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="controlnumber" placeholder="Número de control"
+                         type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>Edad</ion-label>
+              <ion-input formControlName="age"  type="number"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>Activo</ion-label>
+              <ion-toggle formControlName="active" color="secondary"></ion-toggle>
+            </ion-item>
+            <div padding>
+              <ion-button size="large" type="button" [disabled]="!myForm.valid"
+                          (click)="create()" expand="block">Guardar
+              </ion-button>
+            </div>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+          </div>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
 </ion-content>
+
