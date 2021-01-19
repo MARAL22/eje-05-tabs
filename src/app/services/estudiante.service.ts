@@ -17,4 +17,7 @@ export class EstudianteService {
     return this.firestore.collection('estudiante').snapshotChanges();
   }
 
+  updateStudent(student: any, id: string){
+    this.firestore.doc('estudiante/' + id).update(student);
+  }
 }
