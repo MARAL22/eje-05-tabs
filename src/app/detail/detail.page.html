@@ -14,25 +14,29 @@
             <ion-icon name="add"></ion-icon>
         </ion-fab-button>
         <ion-fab-list>
-            <ion-fab-button color="success">
+            <ion-fab-button color="success" (click)="update(student.id,student)">
                 <ion-icon name="checkmark"></ion-icon>
             </ion-fab-button>
             <ion-fab-button color="warning">
                 <ion-icon name="close"></ion-icon>
             </ion-fab-button>
-            <ion-fab-button color="danger">
+            <ion-fab-button color="danger" (click)="delete(student.id)">
                 <ion-icon name="trash"></ion-icon>
             </ion-fab-button>
         </ion-fab-list>
     </ion-fab>
     <ion-card text-center>
         <ion-card-header>
-            <ion-card-subtitle>{{student.name}}</ion-card-subtitle>
-            <ion-card-title>{{student.controlnumber}}</ion-card-title>
+            <ion-input type="text" [(ngModel)]="student.name" required></ion-input>
+            <ion-input type="text" [(ngModel)]="student.controlnumber" required></ion-input>
         </ion-card-header>
         <ion-card-content>
-            <p>CURP:<strong>{{student.curp}}</strong></p>
-            <p>EDAD:<strong>{{student.age}}</strong></p>
+            <ion-label position="floating">CURP</ion-label>
+            <ion-input type="text" [(ngModel)]="student.curp" required></ion-input>
+            <ion-label position="floating">EDAD</ion-label>
+            <ion-input type="text" [(ngModel)]="student.age" required></ion-input>
+
+
             <ion-chip color="secondary" *ngIf="student.active" class="ion-float-center">
                 <ion-label>Activo</ion-label>
             </ion-chip>

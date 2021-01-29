@@ -30,4 +30,23 @@ export class DetailPage implements OnInit {
     ngOnInit() {
     }
 
+    delete(id: string){
+        this.service.deleteStudent(id);
+        this.presentToast('Estudiante eliminado');
+        this.router.navigate(['tabs/tab2']);
+    }
+
+    update(id: string, student: Estudiante){
+        this.service.updateStudent(student,id);
+        this.presentToast('Estudiante Actualizado');
+        this.router.navigate(['tabs/tab2']);
+    }
+    async presentToast(msg: string){
+        const t = await this.toast.create({
+            message: msg,
+            duration: 2000
+        });
+
+        t.present();
+    }
 }
